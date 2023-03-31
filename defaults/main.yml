@@ -26,6 +26,10 @@ __slurm_group_name: "{{ (slurm_user | default({})).group | default(omit) }}"
 __slurm_debian: "{{ ansible_os_family == 'Debian' }}"
 __slurm_redhat: "{{ ansible_os_family == 'RedHat' }}"
 
+# install your own debain package
+__slurm_configure_repos: false
+
+
 __slurm_config_default:
   AuthType: auth/munge
   CryptoType: crypto/munge
