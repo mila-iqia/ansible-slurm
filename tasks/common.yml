@@ -6,6 +6,11 @@
     state: "{{ 'latest' if slurm_upgrade else 'present' }}"
   when: slurm_apt_repository is not defined
 
+- name: Install Slumr package autcompiled
+  ansible.builtin.package:
+    name: "{{ __slurm_own_packages }}"
+  when: slurm_configure_repos
+
 - name: Include config dir creation tasks
   include_tasks: _inc_create_config_dir.yml
   when: slurm_create_dirs
