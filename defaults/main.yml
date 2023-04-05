@@ -75,8 +75,6 @@ __slurm_debian_packages:
   slurmd: [slurm-wlm]
   slurmdbd: [slurmdbd]
 
-__slurm_own_packages: "{{ __slurm_own_compiled_packages }}"
-
 
 __slurm_redhat_packages:
   client: [slurm, munge]
