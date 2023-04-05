@@ -6,7 +6,7 @@
 
 - name: Include Configure repositories
   ansible.builtin.include_tasks: repositories-Debian.yml
-  when: __slurm_configure_repos
+  when: slurm_configure_repos
 
 - name: Include controller installation tasks
   ansible.builtin.include_tasks: slurmctld.yml
