@@ -9,7 +9,7 @@
 - name: Install Slumr package autcompiled
   ansible.builtin.package:
     name: "{{ item }}"
-  loop: "{{ __slurm_own_packages }}"
+  loop: "{{ slurm_own_packages }}"
   when: slurm_configure_repos
 
 - name: Include config dir creation tasks
