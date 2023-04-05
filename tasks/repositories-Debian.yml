@@ -3,6 +3,7 @@
   ansible.builtin.apt_key:
     url: "{{ slurm_gpg_key }}"
     keyring: /etc/apt/trusted.gpg.d/slurm.gpg
+  when: slurm_gpg_key is defined
 
 - name: Configure Slurm repository
   ansible.builtin.copy:
