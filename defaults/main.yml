@@ -24,7 +24,7 @@ __slurm_user_name: "{{ (slurm_user | default({})).name | default('slurm') }}"
 __slurm_group_name: "{{ (slurm_user | default({})).group | default(omit) }}"
 
 
-# install your own debain package
+# install from custom debian repos
 __slurm_configure_repos: false
 
 __slurm_run_dir: >-
