@@ -23,6 +23,10 @@ __slurm_user_name: "{{ (slurm_user | default({})).name | default('slurm') }}"
 # TODO: this could be incorrect, use the group collection from galaxyproject.galaxy
 __slurm_group_name: "{{ (slurm_user | default({})).group | default(omit) }}"
 
+
+# install your own debain package
+__slurm_configure_repos: false
+
 __slurm_run_dir: >-
   {{
     ((ansible_distribution == 'Ubuntu' and ansible_distribution_major_version is version('20', '<')) or 
