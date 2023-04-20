@@ -4,6 +4,13 @@
   ansible.builtin.package:
     name: "{{ __slurm_packages.client }}"
     state: "{{ 'latest' if slurm_upgrade else 'present' }}"
+  when: slurm_apt_repository is not defined
+ 
+- name: Install custom packages slurm
+  ansible.builtin.package:
+    name: "{{ item }}"
+  loop: "{{ slurm_custom_packages }}"
+  when: slurm_configure_repos
 
 - name: Include config dir creation tasks
   ansible.builtin.include_tasks: _inc_create_config_dir.yml
