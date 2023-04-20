@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ __slurm_packages.slurmctld }}"
     state: "{{ 'latest' if slurm_upgrade else 'present' }}"
+  when: slurm_apt_repository is not defined
 
 - name: Create slurm state directory
   ansible.builtin.file:
