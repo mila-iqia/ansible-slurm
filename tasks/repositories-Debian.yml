@@ -22,5 +22,5 @@
   when: slurm_apt_priority is defined
 
 - name: "Update repository cache"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
