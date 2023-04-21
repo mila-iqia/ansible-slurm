@@ -25,7 +25,7 @@ __slurm_group_name: "{{ (slurm_user | default({})).group | default(omit) }}"
 
 
 # install from custom debian repos
-__slurm_configure_repos: false
+slurm_configure_repos: false
 
 __slurm_run_dir: >-
   {{
