@@ -19,8 +19,8 @@
   when: slurm_create_dirs
  
 - name: Add slurmdbd service
-  ansible.builtin.template:
-    src: slurmdbd.service.j2
+  ansible.builtin.copy:
+    src: slurmdbd.service
     dest: /etc/systemd/system/slurmdbd.service
     owner: root
     group: root

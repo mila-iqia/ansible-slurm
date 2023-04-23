@@ -26,8 +26,8 @@
   when: slurm_create_dirs and __slurm_config_merged.SlurmdLogFile != omit
  
 - name: Add slurmd service
-  ansible.builtin.template:
-    src: slurmd.service.j2
+  ansible.builtin.copy:
+    src: slurmd.service
     dest: /etc/systemd/system/slurmd.service
     owner: root
     group: root
