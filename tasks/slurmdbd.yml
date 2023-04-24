@@ -27,7 +27,7 @@
     mode: 0644
   when: slurm_configure_systemd
   notify:
-    - restart slurmdbd
+    - Restart slurmdbd
 
 - name: Install slurmdbd.conf
   ansible.builtin.template:
