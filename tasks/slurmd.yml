@@ -24,7 +24,6 @@
     mode: 0755
     state: directory
   when: slurm_create_dirs and __slurm_config_merged.SlurmdLogFile != omit
- 
 - name: Add slurmd service
   ansible.builtin.copy:
     src: slurmd.service
