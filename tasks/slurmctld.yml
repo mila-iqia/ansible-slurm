@@ -32,7 +32,7 @@
     owner: root
     group: root
     mode: 0644
-  when: slurm_configure_repos
+  when: slurm_configure_systemd
   notify:
     - restart slurmctld
 
