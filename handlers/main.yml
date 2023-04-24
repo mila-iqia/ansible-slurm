@@ -16,7 +16,7 @@
     state: restarted
     masked: no
     enabled: yes
-    daemon_reloas: yes    
+    daemon_reload: yes    
   when: "slurm_start_services and ('slurmexechosts' in group_names or 'exec' in slurm_roles)"
 
 - name: Reload slurmctld
