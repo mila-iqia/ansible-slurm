@@ -1,8 +1,16 @@
 ---
-- name: Install GPG-KEY
-  ansible.builtin.apt_key:
+- name: Download GPG key
+  ansible.builtin.get_url:
     url: "{{ slurm_gpg_key }}"
-    keyring: /etc/apt/trusted.gpg.d/slurm.gpg
+    dest: /etc/apt/keyrings/slurm.asc
+    mode: '0644'
+  when: slurm_gpg_key is defined
+
+- name: Install GPG Key
+  ansible.builtin.command: "gpg --dearmor -o /etc/apt/trusted.gpg.d/slurm.gpg /etc/apt/keyrings/slurm.asc"
+  args:
+    creates: /etc/apt/trusted.gpg.d/slurm.gpg
+  become: true
   when: slurm_gpg_key is defined
 
 - name: Configure Slurm repository
